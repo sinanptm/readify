@@ -5,7 +5,7 @@ import JWTService from './lib/services/JWTService';
 const jwt = new JWTService();
 
 export const middleware = async (request: NextRequest) => {
-    const token = (await cookies()).get("token");
+    const token = cookies().get("token");
     const urlPath = request.nextUrl.pathname;
 
     if (urlPath === '/profile'||urlPath==='/api/user') {

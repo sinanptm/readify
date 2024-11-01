@@ -52,7 +52,7 @@ export const validateUser = async (email: string, password: string): Promise<Err
 
         const token = jwt.createToken(user._id, user.image!);
 
-        (await cookies()).set("token", token, {
+        cookies().set("token", token, {
             httpOnly: true,
             maxAge: 60 * 60 * 24 * 30
         });
@@ -66,7 +66,7 @@ export const validateUser = async (email: string, password: string): Promise<Err
 
 
 export const logout = async (): Promise<void> => {
-    (await cookies()).set("token", "", {
+    cookies().set("token", "", {
         httpOnly: true,
         secure: true,
         path: "/",

@@ -3,7 +3,7 @@ import { cookies } from 'next/headers';
 
 export const fetchWithToken = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
     try {
-        const token = (await cookies()).get("token")?.value;
+        const token = cookies().get("token")?.value;
 
         const headers = {
             ...init?.headers,

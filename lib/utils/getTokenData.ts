@@ -7,7 +7,7 @@ import { NextRequest } from "next/server";
 const jwt = new JWTService();
 
 const getTokenData = async (): Promise<TokenPayload | null> => {
-    const token = (await cookies()).get("token");
+    const token = cookies().get("token");
     if (!token) {
         return null;
     }
